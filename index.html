@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKET BUS SRI HARYADI</title>
+</head>
+<body>
+    <script type="text/javascript">
+		function matematika(){
+
+			var nama = (document.porm.inama.value);
+			var tujuan = (document.porm.itujuan.value);
+			var jumlah = parseFloat (document.porm.ijumlah.value);
+            var member = (document.porm.hakkhusus.value)
+			var rego = 0.0 ;
+			var sub = 0.0;
+			var diskon = 0.0;
+			var total = 0.0;
+			if (tujuan == "Jakarta") 
+            {
+				rego = 10000;
+			}
+			else if(tujuan == "Cirebon")
+			{
+				rego = 15000;
+			}
+			else
+			{
+				rego = 20000;
+			}
+
+			sub = jumlah*rego;
+
+			if (member == "punya") 
+			{
+				diskon = 0.10 * sub;
+			}
+			else
+			{
+				diskon=0.0;
+			}
+			total = sub - diskon;
+			document.porm.otiket.value=eval(rego);
+			document.porm.osub.value=eval(sub);
+			document.porm.odiskon.value=eval(diskon);
+			document.porm.ototal.value=eval(total);
+		}
+
+	</script>
+<center>
+    <h2><b>PENJUALAN TIKET</b></h2>
+    <hr width="50%" size="4sp" color="black">
+    <fieldset>
+    <legend>Pemilihan Tiket</legend>
+<form name="porm" onchange="matematika()">
+    <table border="0">
+	<tr>
+		<td>Nama</td>
+        <td>:</td>
+		<td><input type="text" name="inama" size="25" placeholder="Nama Anda.."> </td>
+	</tr>		
+		<tr>
+			<td>
+				Tujuan
+			</td>
+            <td>:</td>
+			<td>
+				<select name="itujuan">
+					<option value="Jakarta">Jakarta</option>
+					<option value="Cirebon">Cirebon</option>
+					<option value="Tasikmalaya">Tasikmalaya</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Jumlah Tiket
+			</td>
+            <td>:</td>
+			<td>
+				<input type="number" size="15" name="ijumlah" placeholder="Jumlah Tiket Anda..">
+			</td>
+		</tr>
+        <tr>
+			<td>
+				Harga Tiket
+			</td>
+            <td>:</td>
+			<td>
+				<input type="text" size="10" name="otiket">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Member
+			</td>
+            <td>:</td>
+			<td>
+                <select name="hakkhusus">
+				<option value="punya">Mempunyai</option>
+                <option value="tidak punya">Tidak Mempunyai</option>
+            </select>
+			</td>
+		</tr>
+        <tr>
+			<td></td>
+            <td></td>
+			<td>
+				<input type="button" value="Itung" Onclick="matematika()">
+				<input type="reset" value="Busak" >
+			</td>
+		</tr>
+    </table>
+</fieldset>
+<br>
+<br>
+<br>
+<fieldset>
+    <Legend>Invoice</Legend>
+	<table border="0">
+		<tr>
+			<td>
+				Sub Total
+			</td>
+            <td>:</td>
+			<td>
+				<input type="text" size="10" name="osub">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Diskon
+			</td>
+            <td>:</td>
+			<td>
+				<input type="text" size="10" name="odiskon">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Total Harga
+			</td>
+            <td>:</td>
+			<td>
+				<input type="text" name="ototal" size="10"> 
+			</td>
+		</tr>	
+</table>
+</fieldset>
+</form>
+    </center>
+</body>
+<style>
+    fieldset {
+        width: 400px;
+        box-shadow: 2px 2px 4px #333;
+    }
+</style>
+</html>
